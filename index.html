@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-[#222] min-h-screen p-4 overflow-x-hidden">
+    <div class="w-full max-w-[470px] bg-gradient-to-br from-[#00feba] to-[#5b548a] text-white mx-auto mt-4 md:mt-[100px] rounded-[20px] p-6 md:p-[40px] text-center">
+
+        <!-- Search Bar Container -->
+        <div class="relative w-full mb-4">
+            <div class="search-container w-full flex flex-col sm:flex-row items-center justify-between">
+                <input type="text" id="search-input" placeholder="Enter city name" spellcheck="false" class="search-input border-0 outline-none bg-[#ebfffc] text-[#555] py-[10px] px-[25px] h-[60px] rounded-[30px] w-full sm:w-auto sm:flex-1 sm:mr-[10px] text-[18px] mb-2 sm:mb-0"
+                />
+
+                <div class="flex items-center space-x-2 sm:space-x-1">
+                    <button id="current-location-btn" class="border-0 outline-none bg-[#ebfffc] rounded-full w-[60px] h-[60px] cursor-pointer flex items-center justify-center">
+            <i class="fas fa-location-arrow text-[#555]"></i>
+          </button>
+                    <button id="search-btn" class="border-0 outline-none bg-[#ebfffc] rounded-full w-[60px] h-[60px] cursor-pointer flex items-center justify-center">
+            <img src="images/search.png" alt="Search" class="w-[16px]" />
+          </button>
+                </div>
+            </div>
+
+            <!-- Recent Cities Dropdown -->
+            <div id="recent-cities-dropdown" class="absolute left-0 w-full bg-white text-[#555] rounded-b-lg shadow-lg z-10 hidden">
+                <ul id="recent-cities-list" class="py-1 text-left"></ul>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="text-left ml-[10px] text-[14px] mt-[10px] hidden">
+            <p class="text-red-200 font-medium"></p>
+        </div>
+
+        <!-- Weather Info -->
+        <div id="weather-info" class="hidden">
+            <img id="weather-icon" src="images/clear.png" alt="Weather icon" class="w-[170px] mt-[30px] mx-auto" />
+            <h1 id="temperature" class="text-[80px] font-[500]">22°c</h1>
+            <h2 id="city-name" class="text-[45px] font-[400] -mt-[10px]">City Name</h2>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between px-[20px] mt-[50px] gap-4 sm:gap-0">
+                <div class="flex items-center sm:items-start w-full sm:w-auto">
+                    <img src="images/humidity.png" alt="Humidity" class="w-[40px] mr-[10px]" />
+                    <div>
+                        <p id="humidity" class="text-[28px] -mt-[6px]">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center sm:items-start w-full sm:w-auto">
+                    <img src="images/wind.png" alt="Wind" class="w-[40px] mr-[10px]" />
+                    <div>
+                        <p id="wind-speed" class="text-[28px] -mt-[6px]">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forecast -->
+        <div id="forecast-container" class="mt-8 hidden">
+            <h3 class="text-xl font-semibold mb-4">5-Day Forecast</h3>
+            <div id="forecast-list" class="grid grid-cols-2 sm:grid-cols-5 gap-2 overflow-x-auto pb-2"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
